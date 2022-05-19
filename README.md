@@ -1,6 +1,13 @@
 # Projeto Decoder - Microservices
 
-[Cronograma](/assets/Cronograma_decoderproject.html)
+Projetos em arquitetura de Microservices utilizando o framework Spring, construído em acompanhamento ao curso Projeto Decoder.
+[Cronograma](/assets/cronograma.png)
+
+Tecnologias:
+ - Spring Framework
+ - Java
+ - Maven
+ - PostgreSQL
 
 ## Módulo 1 - Planejamento Arquitetura de Microservices: Componentes e Comunicações
 
@@ -102,3 +109,25 @@ public class RestTemplateClient {
 ```
 
 [<b>Spring Boot</b>](https://spring.io/projects/spring-boot) é utilizado para fornecer pré configurações para iniciar uma aplicação, fornecendo um servlet container embutido (Tomcat ou Net). Net no caso do Spring Web Flux.
+
+## Módulo 3 - Criando os primeiros Microservices com Spring
+[Jhipster](https://www.jhipster.tech/) e [Spring Initializr](https://start.spring.io/) podem ser utilizados para geração do projeto inicial.
+
+Microservice:
+ - <b>AuthUser</b>, serviço para controle de usuários e autenticação.
+ - <b>Course</b>
+ - <b>Notification</b>
+
+Para executar a aplicação por linha de comando execute: `mvn spring-boot:run`.
+
+
+#### Developer
+[Kamila Serpa](https://kamilaserpa.github.io)
+
+[1]: https://www.linkedin.com/in/kamila-serpa/
+[2]: https://gitlab.com/java-kamila
+[3]: https://github.com/kamilaserpa
+
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)][1]
+[![gitlab](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white)][2]
+[![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)][3]
