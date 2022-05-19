@@ -11,7 +11,7 @@ Tecnologias:
 
 ## Módulo 1 - Planejamento Arquitetura de Microservices: Componentes e Comunicações
 
-### 1. Concepção da Arquitetura de Microservices
+### 1.1 Concepção da Arquitetura de Microservices
 
 Requisitos: Sistema adaptável a expansão, independência maior entre equipes.
 <b>Opções</b>: iniciar com um sistema monolítico e depois migr-alo para arquitetura microservices, ou iniciar em uma arquitetura microservice.
@@ -21,9 +21,9 @@ Requisitos: Sistema adaptável a expansão, independência maior entre equipes.
 ##### Granilarity of Microservices
 É possível definir diversos microservices abordando pequenos níveis de negócio.
 
-### 2. Definição dos Componentes e Comunicações
+### 1.2 Definição dos Componentes e Comunicações
 -
-### 3. Base de Dados Compartilhada e Base de Dados por Microservice
+### 1.3 Base de Dados Compartilhada e Base de Dados por Microservice
 
 ##### Shared Database Pattern
 
@@ -59,7 +59,7 @@ Sequência de transações local em cada um dos microservices, na qual o MS noti
 Quando ocorre uma falha ou algo inesperado, é necessário que este MS informe os demais MSs para alterar o estado atual daquele recurso. Exemplo: MS de pagamento verifica necessidade de bloqueio de cliente, notifica MS de bloqueio que bloqueia o usuário. 
 Padrão SAGA.
 
-### 4. Communication between Microservice
+### 1.4 Communication between Microservice
 
 |   | One-To-One  | One-To_many  |
 |---|---|---|
@@ -87,7 +87,7 @@ Possibilitam baixo acoplamento, maior disponibilidade, comunicação assíncrona
  
 ## Módulo 2 - Ecossistema Spring para Arquitetura de Microservices
 
-### 1. Spring Framework e Spring Boot
+### 2.1 Spring Framework e Spring Boot
 Spring é composto por vários projetos, podendo conter subprojetos,por exemplo: Spring Boot, Spring Frameworks, Spring Data, Spring Cloud,Spring Security, Spring Batch, Spring AMQP, Spring Hateoas, etc.
 
 <b>Spring Framework</b> é a base para o framework com um todo, possui o projeto Core Container, que é responsável pelos beans e ciclo de vida do Spring Framework.
@@ -119,6 +119,22 @@ Microservice:
  - <b>Notification</b>
 
 Para executar a aplicação por linha de comando execute: `mvn spring-boot:run`.
+
+## Módulo 4 - API RESTFul para Microservices: Do Básico ao Avançado
+
+### 4.1 API REST vs RESTful
+REST é um modelo arquitetural, um conjunto de padrões que trazem boas práticas aos modelos de APIs.
+RESTfull é a implementação desse modelo REST na prática de forma concreta em alguma API.
+
+O Modelo de maturidade de Richardson estabeleceu 4 passos para uma API ser considerada RESTful:
+  0. Para ser considerada RESTful de nível 0 de maturidade a API deve utilizar o protocolo Http.
+  1. Para ser considerada RESTful de nível 1 de maturidade a API deve utilizar recursos bem definidos. Utilizar na nomenclatura de seus endpoints substantivos e retornar as suas respectivas representações, por exemplo: GET `http://localhost/courses` deve retornar cursos.
+  2. Para ser considerada RESTful de nível 2 de maturidade a API deve utilizar de forma semântica os métodos HTTP e apresentar códigos de resposta em grupos coerentes ao usuário (grupo 100 para informações, 200 sucesso, grupo 400 erro de cliente, 300 redirecionamentos, 500 erro no servidor).
+     - GET - buscar recursos
+     - POST - salvar novo recurso
+     - DELETE - deletar recurso
+     - PUT - atualizar recurso
+  3. Para ser considerada RESTful de nível 3 de maturidade deve implementar o padrão HATEOAS de comunicação, enviando links específicos de acessos aos recursos.
 
 
 #### Developer
