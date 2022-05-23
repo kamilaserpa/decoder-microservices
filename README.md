@@ -18,14 +18,16 @@ Requisitos: Sistema adaptável a expansão, independência maior entre equipes.
 
 <b>Considerações</b>: Ao iniciar com microserviços se torna mais fácil expandir o sistema, possui cenários menores possibilitando maior controle, conforme vão surgindo novas frentes de negócio podem ser criados novos serviços de forma independente se comunicando entre si. Ao partir de um monolito para expandir posteriormente em microserviços, em um determinado momento seria necessário trabalhar na migração de um monolito para microservice ao invés de criar novas features, o que demandaria muito mais tempo e investimento.
 
-##### Granilarity of Microservices
+#### Granilarity of Microservices
+
 É possível definir diversos microservices abordando pequenos níveis de negócio.
 
 ### 1.2 Definição dos Componentes e Comunicações
 -
+
 ### 1.3 Base de Dados Compartilhada e Base de Dados por Microservice
 
-##### Shared Database Pattern
+#### Shared Database Pattern
 
  <b>Prós</b>: Forte consistência; ACID Transactions locally, atomicidade (transação ocorre por completo ou não ocorre), forte consistência, isolameto de transações, durabilidade (mesmo ocorrendo alguma falha os dados são persistidos ao final da transação).
 
@@ -75,6 +77,7 @@ Padrão SAGA.
 - One-to-many: serviço envia uma solicitação para um ou vários serviços, aguardando retorno de alguns desses serviços ou não.
 
 ### 5. Assincronia por Mensageria ou Eventos
+
 Uma mensagem é um peiddo genéricom com carga útil para comunicação entre MS.
 
 Comunicação entre Producer e Consumer: o producer produz uma mensagem entregue a determinado consumidor, preparado para recebê-la.
@@ -88,6 +91,7 @@ Possibilitam baixo acoplamento, maior disponibilidade, comunicação assíncrona
 ## Módulo 2 - Ecossistema Spring para Arquitetura de Microservices
 
 ### 2.1 Spring Framework e Spring Boot
+
 Spring é composto por vários projetos, podendo conter subprojetos,por exemplo: Spring Boot, Spring Frameworks, Spring Data, Spring Cloud,Spring Security, Spring Batch, Spring AMQP, Spring Hateoas, etc.
 
 <b>Spring Framework</b> é a base para o framework com um todo, possui o projeto Core Container, que é responsável pelos beans e ciclo de vida do Spring Framework.
@@ -111,6 +115,7 @@ public class RestTemplateClient {
 [<b>Spring Boot</b>](https://spring.io/projects/spring-boot) é utilizado para fornecer pré configurações para iniciar uma aplicação, fornecendo um servlet container embutido (Tomcat ou Net). Net no caso do Spring Web Flux.
 
 ## Módulo 3 - Criando os primeiros Microservices com Spring
+
 [Jhipster](https://www.jhipster.tech/) e [Spring Initializr](https://start.spring.io/) podem ser utilizados para geração do projeto inicial.
 
 Microservice:
@@ -123,10 +128,12 @@ Para executar a aplicação por linha de comando execute: `mvn spring-boot:run`.
 ## Módulo 4 - API RESTFul para Microservices: Do Básico ao Avançado
 
 ### 4.1 API REST vs RESTful
+
 REST é um modelo arquitetural, um conjunto de padrões que trazem boas práticas aos modelos de APIs.
 RESTfull é a implementação desse modelo REST na prática de forma concreta em alguma API.
 
 O Modelo de maturidade de Richardson estabeleceu 4 passos para uma API ser considerada RESTful:
+
   0. Para ser considerada RESTful de nível 0 de maturidade a API deve utilizar o protocolo Http.
   1. Para ser considerada RESTful de nível 1 de maturidade a API deve utilizar recursos bem definidos. Utilizar na nomenclatura de seus endpoints substantivos e retornar as suas respectivas representações, por exemplo: GET `http://localhost/courses` deve retornar cursos.
   2. Para ser considerada RESTful de nível 2 de maturidade a API deve utilizar de forma semântica os métodos HTTP e apresentar códigos de resposta em grupos coerentes ao usuário (grupo 100 para informações, 200 sucesso, grupo 400 erro de cliente, 300 redirecionamentos, 500 erro no servidor).
@@ -138,6 +145,7 @@ O Modelo de maturidade de Richardson estabeleceu 4 passos para uma API ser consi
 
 
 #### Developer
+
 [Kamila Serpa](https://kamilaserpa.github.io)
 
 [1]: https://www.linkedin.com/in/kamila-serpa/
