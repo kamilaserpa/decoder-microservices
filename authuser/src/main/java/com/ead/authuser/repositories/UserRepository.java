@@ -9,4 +9,8 @@ import java.util.UUID;
 // não sendo 'estritamente' necessária a anotação de @Repository
 public interface UserRepository extends JpaRepository<UserModel, UUID> {
 
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
+
 }
