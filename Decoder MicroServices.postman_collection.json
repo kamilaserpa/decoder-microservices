@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "eb7da08e-3fc4-4cf5-9b4c-5d0ac3da16ea",
+		"name": "Decoder MicroServices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5585105"
+	},
+	"item": [
+		{
+			"name": "AuthUser",
+			"item": [
+				{
+					"name": "AuthController",
+					"item": [
+						{
+							"name": "SIGN UP (SAVE USER)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"kamilaserpa\",\n    \"email\": \"contato@kamila.com\",\n    \"password\": \"1234\",\n    \"fullName\": \"Kamila Serpa\",\n    \"phoneNumber\": \"\",\n    \"cpf\": \"62024730027\",\n    \"imageUrl\": \"teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"kamilaserpa\",\n    \"email\": \"contato@kamila.com\",\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "UserController",
+					"item": [
+						{
+							"name": "GET ALL USERS",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"kamilaserpa\",\n    \"email\": \"contato@kamila.com\",\n    \"password\": \"1234\",\n    \"fullName\": \"Kamila Serpa\",\n    \"phoneNumber\": \"\",\n    \"cpf\": \"62024730027\",\n    \"imageUrl\": \"teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET ONE USER",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"kamilaserpa\",\n    \"email\": \"contato@kamila.com\",\n    \"password\": \"1234\",\n    \"fullName\": \"Kamila Serpa\",\n    \"phoneNumber\": \"\",\n    \"cpf\": \"62024730027\",\n    \"imageUrl\": \"teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/users/1c08f859-0e50-4d7c-904f-3a808271a3d2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"users",
+										"1c08f859-0e50-4d7c-904f-3a808271a3d2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE USER",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"kamilaserpa\",\n    \"email\": \"contato@kamila.com\",\n    \"password\": \"1234\",\n    \"fullName\": \"Kamila Serpa\",\n    \"phoneNumber\": \"\",\n    \"cpf\": \"62024730027\",\n    \"imageUrl\": \"teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/users/1c08f859-0e50-4d7c-904f-3a808271a3d2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"users",
+										"1c08f859-0e50-4d7c-904f-3a808271a3d2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE USER",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"kamilarodrigues\",\n    \"email\": \"contato@kamila.com\",\n    \"password\": \"123456\",\n    \"fullName\": \"Kamila R Serpa\",\n    \"phoneNumber\": \"8599998888\",\n    \"cpf\": \"62024730027\",\n    \"imageUrl\": \"teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/users/1c08f859-0e50-4d7c-904f-3a808271a3d2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"users",
+										"1c08f859-0e50-4d7c-904f-3a808271a3d2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT PASSWORD",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"123456\",\n    \"oldPassword\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/users/1c08f859-0e50-4d7c-904f-3a808271a3d2/password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"users",
+										"1c08f859-0e50-4d7c-904f-3a808271a3d2",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT IMAGE URL",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"kamilaserpa\",\n    \"email\": \"contato@kamila.com\",\n    \"password\": \"1234\",\n    \"fullName\": \"Kamila Serpa\",\n    \"phoneNumber\": \"\",\n    \"cpf\": \"62024730027\",\n    \"imageUrl\": \"atualizando imageUrl\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/users/1c08f859-0e50-4d7c-904f-3a808271a3d2/image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"users",
+										"1c08f859-0e50-4d7c-904f-3a808271a3d2",
+										"image"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
