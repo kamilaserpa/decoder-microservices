@@ -32,18 +32,23 @@ No controller inserir a anotação `@Validated` informando a View a ser utilizad
     @JsonView(UserDto.UserView.UserPut.class) UserDto userDto) { .. } 
 ```
 
-#### Spring Reference Documentation
-For further reference, please consider the following sections:
+## Filtros avançados com Specification Argument Resolver
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.7/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.7/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.6.7/reference/htmlsingle/#boot-features-developing-web-applications)
+Utiliza a biblioteca [Specification Argument Resolver](https://github.com/tkaczmarzyk/specification-arg-resolver) na qual implementa o filtro de busca pelos parâmetros enviados na requisição.
+A classe [SpecificationTemplate](src/main/java/com/ead/authuser/specifications/SpecificationTemplate.java) contém a interface `UserSpec` que controla a lógica de filtragem.
 
-#### Spring Guides
-The following guides illustrate how to use some features concretely:
+Então é possível adicionar o parâmetro `spec` como parâmetro do método getAllUsers
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+```java
+   @GetMapping
+    public ResponseEntity<Page<UserModel>> getAllUsers(
+            SpecificationTemplate.UserSpec spec,
+            @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+        ...
+    }
+```
+<b>Atenção</b>, o projeto _Specification Argument Resolver_ teve sua última release em 2020. Para projetos de grande porte a utilização de Specification e Criteria Builder de maneira nativa com Spring Data. 
 
+[ResolverConfig](src/main/java/com/ead/authuser/configs/ResolverConfig.java) foi criada para adicionar _resolvers_, para que a API esteja preparada para converter os dados dos parâmetros HTTP (string) para tipos básicos Java (Enum, LocalDate, LocalDateTime, Double, Float, etc).
+ 
+<b>Observação</b>, pesquisar a diferença de `WebMvcConfigurationSupport` para `WebMvcConfigurer`.

@@ -1,6 +1,6 @@
 # Projeto Decoder - Microservices
 
-Projetos em arquitetura de Microservices utilizando o framework Spring, construído em acompanhamento ao curso Projeto Decoder.
+Ecossistema de Projetos em arquitetura de Microservices utilizando o framework Spring, construído em acompanhamento ao curso Projeto Decoder.
 [Cronograma](/assets/cronograma.png)
 
 Tecnologias:
@@ -8,6 +8,10 @@ Tecnologias:
  - Java
  - Maven
  - PostgreSQL
+ - Specification Argument Resolver
+
+Microservices:
+ - [AuthUser](/authuser)
 
 ## Módulo 1 - Planejamento Arquitetura de Microservices: Componentes e Comunicações
 
@@ -142,6 +146,33 @@ O Modelo de maturidade de Richardson estabeleceu 4 passos para uma API ser consi
      - DELETE - deletar recurso
      - PUT - atualizar recurso
   3. Para ser considerada RESTful de nível 3 de maturidade deve implementar o padrão HATEOAS de comunicação, enviando links específicos de acessos aos recursos.
+
+### 4.2 @JsonView
+A utilização da anotação @JsonView em determinadas propriedades de [Authuser/UserDto](authuser/src/main/java/com/ead/authuser/dtos/UserDto.java) faz com que o recurso anotado com a anotação `@JsonView(Interface.class)` passe a gerenciar apenas propriedades com a mesma anotação. 
+Mais detalhes no README do microservice.
+
+### 4.3 Filtros com Specification Argument Resolver
+Em [AuthUser/SpecificationTemplate](authuser/src/main/java/com/ead/authuser/specifications/SpecificationTemplate.java) observa-se a utilização da biblioteca [Specification Argument Resolver](https://blog.tratif.com/2017/11/23/effective-restful-search-api-in-spring/) na qual implementa o filtro de busca pelos parâmetros enviados na requisição.
+Mais detalhes no README do microservice.
+
+### 4.4 Paginação
+Em [AuthUser/UserController](authuser/src/main/java/com/ead/authuser/controllers/UserController.java) observa-se a utilização de `Pages`.
+
+#### Spring 
+##### Spring Reference Documentation
+For further reference, please consider the following sections:
+
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.7/maven-plugin/reference/html/)
+* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.7/maven-plugin/reference/html/#build-image)
+* [Spring Web](https://docs.spring.io/spring-boot/docs/2.6.7/reference/htmlsingle/#boot-features-developing-web-applications)
+
+##### Spring Guides
+The following guides illustrate how to use some features concretely:
+
+* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
+* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 
 
 #### Developer
