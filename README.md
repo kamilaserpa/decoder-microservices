@@ -12,7 +12,8 @@ Tecnologias:
 
 Microservices:
  - [AuthUser](/authuser)
-
+ - [Course](/course)
+ 
 ## Módulo 1 - Planejamento Arquitetura de Microservices: Componentes e Comunicações
 
 ### 1.1 Concepção da Arquitetura de Microservices
@@ -163,6 +164,9 @@ A API fornece informações de hipermídia de forma dinâmica, eleva o nível de
 Padrão com aplicação por análise de cada caso, pois impõe um overhead de volume de recursos.
 
 O projeto [Spring HATEOAS](https://docs.spring.io/spring-hateoas/docs/current/reference/html/) foi utilizado.
+
+## Módulo 5 - Spring Data JPA Avançado em Microservices
+
 
 #### Spring 
 ##### Spring Reference Documentation

@@ -39,7 +39,7 @@ public class UserController {
         Page<UserModel> userModelPage = userService.findAll(spec, pageable);
         if (!userModelPage.isEmpty()) {
             for (UserModel user : userModelPage.toList()) {
-                user.add(linkTo(methodOn(UserController.class).getOneUser(user.getId()))
+                user.add(linkTo(methodOn(UserController.class).getOneUser(user.getUserId()))
                         .withSelfRel());
             }
         }
