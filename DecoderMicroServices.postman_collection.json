@@ -42,6 +42,62 @@
 							"response": []
 						},
 						{
+							"name": "SIGN UP (SAVE other USER)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var user = [{",
+											"    \"username\": \"luizaserpa\",",
+											"    \"email\": \"contato@luiza.com\",",
+											"    \"password\": \"123456\",",
+											"    \"fullName\": \"Luiza Serpa\",",
+											"    \"phoneNumber\": \"85963777690\",",
+											"    \"cpf\": \"96377769075\",",
+											"    \"imageUrl\": \"teste\"",
+											"}, {",
+											"    \"username\": \"muriloserpa\",",
+											"    \"email\": \"contato@murilo.com\",",
+											"    \"password\": \"123456\",",
+											"    \"fullName\": \"Murilo Serpa\",",
+											"    \"phoneNumber\": \"85931105961\",",
+											"    \"cpf\": \"31105961052\",",
+											"    \"imageUrl\": \"teste\"",
+											"}]"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"luizaserpa\",\n    \"email\": \"contato@luiza.com\",\n    \"password\": \"123456\",\n    \"fullName\": \"Luiza Serpa\",\n    \"phoneNumber\": \"85963777690\",\n    \"cpf\": \"96377769075\",\n    \"imageUrl\": \"teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8087/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "LOGIN",
 							"request": {
 								"method": "POST",
@@ -93,7 +149,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8087/users",
+									"raw": "http://localhost:8087/users?size=2&page=0&sort=creationDate,desc",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -101,6 +157,20 @@
 									"port": "8087",
 									"path": [
 										"users"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "2"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "sort",
+											"value": "creationDate,desc"
+										}
 									]
 								}
 							},

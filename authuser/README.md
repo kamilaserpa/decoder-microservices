@@ -52,3 +52,17 @@ Então é possível adicionar o parâmetro `spec` como parâmetro do método get
 [ResolverConfig](src/main/java/com/ead/authuser/configs/ResolverConfig.java) foi criada para adicionar _resolvers_, para que a API esteja preparada para converter os dados dos parâmetros HTTP (string) para tipos básicos Java (Enum, LocalDate, LocalDateTime, Double, Float, etc).
  
 <b>Observação</b>, pesquisar a diferença de `WebMvcConfigurationSupport` para `WebMvcConfigurer`.
+
+## HATEOAS
+
+O projeto [Spring HATEOAS](https://docs.spring.io/spring-hateoas/docs/current/reference/html/) elevando o nível de maturidade da API ao fornecer informações de hipermídia de forma dinâmica.
+
+Spring HATEOAS fornece um `WebMvcLinkBuilder` que permite criar links apontando para classes de controlador. O exemplo em [UserController]([UserDto](src/main/java/com/ead/authuser/controllers/UserController.java) pode ser visto:
+
+```
+import static org.sfw.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
+user.add(linkTo(methodOn(UserController.class).getOneUser(user.getId()))
+                        .withSelfRel());
+```
+Os tipos de relação podem ser vistos na lista de [IANA link relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml).

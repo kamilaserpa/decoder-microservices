@@ -158,6 +158,12 @@ Mais detalhes no README do microservice.
 ### 4.4 Paginação
 Em [AuthUser/UserController](authuser/src/main/java/com/ead/authuser/controllers/UserController.java) observa-se a utilização de `Pages`.
 
+### 4.5 HATEAOS
+A API fornece informações de hipermídia de forma dinâmica, eleva o nível de maturidade da API. Dessa maneira um cliente REST necessita de pouco ou nenhum conhecimento prévio de como interagir com a API.
+Padrão com aplicação por análise de cada caso, pois impõe um overhead de volume de recursos.
+
+O projeto [Spring HATEOAS](https://docs.spring.io/spring-hateoas/docs/current/reference/html/) foi utilizado.
+
 #### Spring 
 ##### Spring Reference Documentation
 For further reference, please consider the following sections:
