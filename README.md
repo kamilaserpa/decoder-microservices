@@ -8,7 +8,6 @@ Tecnologias:
  - Java
  - Maven
  - PostgreSQL
- - Specification Argument Resolver
 
 Microservices:
  - [AuthUser](/authuser)
@@ -167,6 +166,16 @@ O projeto [Spring HATEOAS](https://docs.spring.io/spring-hateoas/docs/current/re
 
 ## Módulo 5 - Spring Data JPA Avançado em Microservices
 
+No cenário do projeto `Course`um curso possui vários módulos e um módulo possui várias lições. 
+Para coleções de dados utilizamos o `Set`, como em [CourseModel](/course/src/main/java/com/ead/course/models/CourseModel.java)
+
+```
+ @OneToMany(mappedBy = "course") // atributo de ModuleModel que será a chave extrangeira
+    private Set<ModuleModel> modules;
+```
+
+AO usar o List o Hibernate se torna incapaz de buscar duas listas diferentes em uma única consulta. No nosso cenário não seria possível reornar os cursos com seus módulos associados em uma única consulta, resultando em várias consultas ao banco, com `Set` isso é possível melhorando a performance da aplicação.
+Veja artigo [Por que Set é melhor que List em @ManyToMany](https://dzone.com/articles/why-set-is-better-than-list-in-manytomany)
 
 #### Spring 
 ##### Spring Reference Documentation

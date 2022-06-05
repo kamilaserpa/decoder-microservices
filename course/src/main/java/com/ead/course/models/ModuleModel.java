@@ -2,11 +2,13 @@ package com.ead.course.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -35,4 +37,12 @@ public class ModuleModel implements Serializable {
     @Column(nullable = false)
     private LocalDateTime lastUpdateDate;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "course_id")
+    private CourseModel course;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // ao buscar course modules será oculto
+    @OneToMany(mappedBy = "module") // atributo de ModuleModel que será a chave extrangeira
+    private Set<LessonModel> lessons;
 }

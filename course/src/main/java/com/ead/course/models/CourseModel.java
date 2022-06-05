@@ -4,11 +4,13 @@ import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -51,4 +53,11 @@ public class CourseModel implements Serializable {
     @Column(nullable = false)
     private UUID userInstructor;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // ao buscar course modules será oculto
+    @OneToMany(mappedBy = "course") // atributo de ModuleModel que será a chave extrangeira
+    private Set<ModuleModel> modules;
+    // Set não é ordenado e não permite duplicatas. Imagine uma entidade com n coleções relacionadas.
+    // Se em uma única consulta for necessário buscar um curso e entidade relacionadas, utilizando List não seria possível
+    // Pois o hibernate traz apenas o primeiro dessa relação em uma única consulta.
+    // O hibernate não trabalha de forma tão performática em entidades que utilizam List, gerando multiplas buscas em banco de dados
 }
